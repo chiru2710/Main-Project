@@ -1,0 +1,51 @@
+record_id,district,region,series,weight_g,price_inr,units_sold,sales_date,store_type,urban_rural,retailer_id,revenue_inr
+1,Anantapur,Rayalaseema,Dairy Milk Silk Oreo 140g,140,459,36,06-05-2025,Kirana,Urban,KIR_854,16524
+2,East Godavari,Coastal Andhra,Dairy Milk Dark 90g,90,280,55,17-01-2025,Supermarket,Urban,SUP_323,15400
+3,Krishna,Coastal Andhra,Dairy Milk Dark 90g,90,290,72,12-04-2025,Pharmacy,Rural,PHA_325,20880
+4,Srikakulam,Uttarandhra,Dairy Milk Silk Hazelnut 100g,100,376,1,23-03-2025,Convenience Store,Rural,CON_384,376
+5,West Godavari,Coastal Andhra,Dairy Milk Roast Almond 150g,150,519,44,22-02-2025,Supermarket,Rural,SUP_199,22836
+6,Prakasam,Coastal Andhra,Dairy Milk Mousse 95g,95,306,104,23-01-2025,Convenience Store,Urban,CON_487,31824
+7,East Godavari,Coastal Andhra,Dairy Milk Dark 90g,90,284,81,05-07-2025,Pharmacy,Urban,PHA_821,23004
+8,East Godavari,Coastal Andhra,Dairy Milk Silk 120g,120,407,99,29-05-2025,Supermarket,Urban,SUP_987,40293
+9,East Godavari,Coastal Andhra,Dairy Milk Marvellous Creations 120g,120,380,82,06-07-2025,Kirana,Rural,KIR_463,31160
+10,Krishna,Coastal Andhra,Dairy Milk Silk Hazelnut 100g,100,374,88,06-02-2025,Pharmacy,Urban,PHA_646,32912
+11,Kurnool,Rayalaseema,Dairy Milk Roast Almond 150g,150,503,49,19-05-2025,Pharmacy,Urban,PHA_801,24647
+12,Prakasam,Coastal Andhra,Dairy Milk Silk 120g,120,399,5,11-06-2025,Convenience Store,Rural,CON_167,1995
+13,Krishna,Coastal Andhra,Dairy Milk Mousse 95g,95,298,64,22-07-2025,Convenience Store,Urban,CON_371,19072
+14,West Godavari,Coastal Andhra,Dairy Milk Roast Almond 150g,150,515,69,15-05-2025,Pharmacy,Rural,PHA_697,35535
+15,Nellore,Coastal Andhra,Dairy Milk Mousse 95g,95,298,18,10-09-2025,Supermarket,Urban,SUP_981,5364
+16,East Godavari,Coastal Andhra,Dairy Milk Fruit & Nut 80g,80,259,102,05-08-2025,Pharmacy,Urban,PHA_494,26418
+17,Nellore,Coastal Andhra,Dairy Milk Silk 60g,60,193,71,06-01-2025,Supermarket,Rural,SUP_887,13703
+18,Anantapur,Rayalaseema,Dairy Milk Mousse 95g,95,296,56,22-03-2025,Convenience Store,Urban,CON_839,16576
+19,Palnadu,Coastal Andhra,Dairy Milk Silk Hazelnut 100g,100,379,98,02-04-2025,Pharmacy,Urban,PHA_991,37142
+20,Anantapur,Rayalaseema,Dairy Milk Silk Hazelnut 100g,100,377,65,12-04-2025,Kirana,Rural,KIR_880,24505
+21,West Godavari,Coastal Andhra,Dairy Milk Dark 90g,90,297,119,01-01-2025,Pharmacy,Rural,PHA_600,35343
+22,Visakhapatnam,Coastal Andhra,Dairy Milk Silk Oreo 140g,140,477,113,07-06-2025,Kirana,Urban,KIR_346,53901
+23,Palnadu,Coastal Andhra,Dairy Milk Silk Oreo 140g,140,460,63,05-02-2025,Pharmacy,Urban,PHA_231,28980
+24,Anantapur,Rayalaseema,Dairy Milk Silk 60g,60,201,22,16-05-2025,Pharmacy,Rural,PHA_316,4422
+25,Palnadu,Coastal Andhra,Dairy Milk Dark 90g,90,293,89,13-04-2025,Online,Rural,ONL_787,26077
+26,Anantapur,Rayalaseema,Dairy Milk Mousse 95g,95,303,67,20-08-2025,Supermarket,Urban,SUP_330,20301
+27,East Godavari,Coastal Andhra,Dairy Milk Mousse 95g,95,294,71,28-04-2025,Pharmacy,Urban,PHA_107,20874
+28,East Godavari,Coastal Andhra,Dairy Milk Silk 120g,120,399,116,17-01-2025,Online,Urban,ONL_626,46284
+29,Krishna,Coastal Andhra,Dairy Milk Silk Hazelnut 100g,100,373,28,09-03-2025,Pharmacy,Rural,PHA_348,10444
+30,YSR Kadapa,Rayalaseema,Dairy Milk Silk 60g,60,198,25,18-02-2025,Supermarket,Rural,SUP_462,4950
+31,Nellore,Coastal Andhra,Dairy Milk Marvellous Creations 120g,120,383,94,28-01-2025,Supermarket,Urban,SUP_512,36002
+32,Kurnool,Rayalaseema,Dairy Milk Mousse 95g,95,310,14,08-05-2025,Kirana,Urban,KIR_649,4340
+33,Srikakulam,Uttarandhra,Dairy Milk Fruit & Nut 80g,80,254,36,25-08-2025,Kirana,Urban,KIR_553,9144
+34,YSR Kadapa,Rayalaseema,Dairy Milk Dark 90g,90,280,84,08-01-2025,Supermarket,Urban,SUP_270,23520
+35,Nellore,Coastal Andhra,Dairy Milk Silk 60g,60,192,111,25-07-2025,Supermarket,Urban,SUP_488,21312
+36,Visakhapatnam,Coastal Andhra,Dairy Milk Marvellous Creations 120g,120,379,101,21-08-2025,Online,Rural,ONL_813,38279
+37,Kurnool,Rayalaseema,Dairy Milk Dark 90g,90,291,63,21-03-2025,Kirana,Rural,KIR_322,18333
+38,Visakhapatnam,Coastal Andhra,Dairy Milk Dark 90g,90,279,41,30-01-2025,Supermarket,Rural,SUP_614,11439
+39,Palnadu,Coastal Andhra,Dairy Milk Dark 90g,90,281,66,11-02-2025,Kirana,Urban,KIR_709,18546
+40,East Godavari,Coastal Andhra,Dairy Milk Roast Almond 150g,150,508,114,07-05-2025,Pharmacy,Urban,PHA_734,57912
+41,East Godavari,Coastal Andhra,Dairy Milk Marvellous Creations 120g,120,387,73,11-06-2025,Online,Urban,ONL_785,28251
+42,Kurnool,Rayalaseema,Dairy Milk Mousse 95g,95,299,51,09-03-2025,Online,Rural,ONL_423,15249
+43,Palnadu,Coastal Andhra,Dairy Milk Silk Oreo 140g,140,458,80,21-02-2025,Supermarket,Urban,SUP_618,36640
+44,Guntur,Coastal Andhra,Dairy Milk Fruit & Nut 80g,80,265,113,05-02-2025,Kirana,Rural,KIR_391,29945
+45,West Godavari,Coastal Andhra,Dairy Milk Silk 60g,60,199,91,04-06-2025,Pharmacy,Urban,PHA_783,18109
+46,Nandyal,Rayalaseema,Dairy Milk Dark 90g,90,284,85,23-02-2025,Kirana,Rural,KIR_218,24140
+47,Palnadu,Coastal Andhra,Dairy Milk Silk Oreo 140g,140,473,20,20-05-2025,Online,Urban,ONL_834,9460
+48,Prakasam,Coastal Andhra,Dairy Milk Roast Almond 150g,150,514,110,16-05-2025,Pharmacy,Rural,PHA_357,56540
+49,Palnadu,Coastal Andhra,Dairy Milk Silk 120g,120,396,55,22-05-2025,Supermarket,Urban,SUP_441,21780
+50,YSR Kadapa,Rayalaseema,Dairy Milk Fruit & Nut 80g,80,259,34,24-03-2025,Convenience Store,Rural,CON_674,8806
