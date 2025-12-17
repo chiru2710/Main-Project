@@ -40,6 +40,7 @@ def train_process():
 
     df = pd.read_csv(path).dropna()
 
+    # Target = last column
     target = df.columns[-1]
     if not np.issubdtype(df[target].dtype, np.number):
         return "❌ Last column must be numeric"
@@ -47,51 +48,62 @@ def train_process():
     X = df.drop(columns=[target])
     y = df[target]
 
+    # Encode categorical columns
     encoders = {}
     for col in X.select_dtypes(include="object").columns:
         le = LabelEncoder()
         X[col] = le.fit_transform(X[col].astype(str))
         encoders[col] = le
 
+    # Scale
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(X)
 
+    # Split
     X_train, X_test, y_train, y_test = train_test_split(
         X_scaled, y, test_size=0.2, random_state=42
     )
 
+    # Model
     model = RandomForestRegressor(random_state=42)
     model.fit(X_train, y_train)
 
     accuracy = round(r2_score(y_test, model.predict(X_test)), 3)
 
+    # Save model artifacts
     pickle.dump(model, open("model.pkl", "wb"))
     pickle.dump(scaler, open("scaler.pkl", "wb"))
     pickle.dump(encoders, open("encoders.pkl", "wb"))
     pickle.dump(list(X.columns), open("features.pkl", "wb"))
 
-    # Dataset info
+    # ================= DATASET INFO =================
     buffer = StringIO()
     df.info(buf=buffer)
     dataset_info = buffer.getvalue()
 
     numeric_df = df.select_dtypes(include="number")
 
-    # ===== TRAINING GRAPHS =====
+    # ================= GRAPHS =================
+
+    # 1. Histogram
     plt.hist(y, bins=20)
     plt.xlabel("Target Value")
     plt.ylabel("Frequency")
     plt.title("Target Distribution")
+    plt.tight_layout()
     plt.savefig(f"{PLOT_FOLDER}/target_dist.png")
     plt.close()
 
+    # 2. Line chart
     plt.plot(y.values)
     plt.xlabel("Index")
     plt.ylabel(target)
     plt.title("Target Trend")
+    plt.tight_layout()
     plt.savefig(f"{PLOT_FOLDER}/train_line.png")
     plt.close()
 
+    # 3. Bar chart
     X.mean().plot(kind="bar")
     plt.xlabel("Features")
     plt.ylabel("Mean Value")
@@ -100,20 +112,34 @@ def train_process():
     plt.savefig(f"{PLOT_FOLDER}/train_bar.png")
     plt.close()
 
-    if numeric_df.shape[1] > 1:
+    # 4. Heatmap (SAFE)
+    if numeric_df.shape[1] >= 2:
         sns.heatmap(numeric_df.corr(), annot=True, cmap="coolwarm")
         plt.title("Correlation Heatmap")
         plt.tight_layout()
         plt.savefig(f"{PLOT_FOLDER}/train_heatmap.png")
         plt.close()
 
+    # 5. Pie chart
     pd.qcut(y, q=3, labels=["Low", "Medium", "High"]).value_counts().plot(
         kind="pie", autopct="%1.1f%%"
     )
     plt.ylabel("")
     plt.title("Target Category Distribution")
+    plt.tight_layout()
     plt.savefig(f"{PLOT_FOLDER}/train_pie.png")
     plt.close()
+
+    # 6. Scatter plot (FIXED – THIS WAS MISSING)
+    if numeric_df.shape[1] >= 2:
+        feature_col = numeric_df.columns[0]
+        plt.scatter(df[feature_col], y)
+        plt.xlabel(feature_col)
+        plt.ylabel(target)
+        plt.title("Scatter Plot – Feature vs Target")
+        plt.tight_layout()
+        plt.savefig(f"{PLOT_FOLDER}/train_scatter.png")
+        plt.close()
 
     return render_template(
         "train_result.html",
@@ -137,16 +163,14 @@ def train_process():
 def detect():
     features = pickle.load(open("features.pkl", "rb"))
     encoders = pickle.load(open("encoders.pkl", "rb"))
-
     dropdowns = {k: list(v.classes_) for k, v in encoders.items()}
-
     return render_template("detect.html", features=features, dropdowns=dropdowns)
 
 # ================= DETECT PROCESS =================
 @app.route("/detect_process", methods=["POST"])
 def detect_process():
     model = pickle.load(open("model.pkl", "rb"))
-    scaler = pickle.load(open("scaler.pkl", "rb"))
+    scaler = pickle.load(open("scaler.pkl", "wb")) if False else pickle.load(open("scaler.pkl", "rb"))
     encoders = pickle.load(open("encoders.pkl", "rb"))
     features = pickle.load(open("features.pkl", "rb"))
 
@@ -172,18 +196,20 @@ def detect_process():
         "High Risk"
     )
 
-    # ===== RISK GRAPHS =====
+    # Risk bar
     plt.bar(["Risk Score"], [risk_score])
     plt.ylabel("Score (%)")
     plt.title("Risk Score")
     plt.savefig(f"{PLOT_FOLDER}/det_bar.png")
     plt.close()
 
+    # Risk pie
     plt.pie([risk_score, 100-risk_score], labels=["Risk", "Safe"], autopct="%1.1f%%")
     plt.title("Risk Composition")
     plt.savefig(f"{PLOT_FOLDER}/det_pie.png")
     plt.close()
 
+    # Risk line
     plt.plot([risk_score])
     plt.xlabel("Prediction")
     plt.ylabel("Risk Score")
@@ -191,6 +217,7 @@ def detect_process():
     plt.savefig(f"{PLOT_FOLDER}/det_line.png")
     plt.close()
 
+    # Scatter
     plt.scatter(range(len(values[0])), values[0])
     plt.xlabel("Feature Index")
     plt.ylabel("Feature Value")
@@ -198,6 +225,7 @@ def detect_process():
     plt.savefig(f"{PLOT_FOLDER}/det_scatter.png")
     plt.close()
 
+    # Heatmap
     sns.heatmap(pd.DataFrame(values, columns=features), annot=True, cmap="coolwarm")
     plt.title("Input Feature Heatmap")
     plt.savefig(f"{PLOT_FOLDER}/det_heatmap.png")
